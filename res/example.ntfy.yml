@@ -1,0 +1,10 @@
+server:
+  url: "https://ntfy.example.com"
+# user section may not exist if not needed
+user:
+  name: "username"
+  password: "password"
+# topic section may not exist if not needed
+topics:
+  route1: "topic-id"
+  route2: "topic-id"
