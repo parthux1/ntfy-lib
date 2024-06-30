@@ -12,7 +12,7 @@
 #include <spdlog/spdlog.h>
 #include <yaml-cpp/yaml.h>
 
-#include <Credentials.hpp>
+#include "Credentials.hpp"
 
 namespace ntfy {
     /*!
