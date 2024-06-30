@@ -5,10 +5,8 @@ Implements partially ntfy functionality stated in https://docs.ntfy.sh/subscribe
 
 - [Examples](#examples)
 - [Capabilities](#capabilities)
-- [Building with vcpk](#-building-with-vcpkg)
-    - [using CLI](#-using-cli)
-    - [using CLion UI](#-using-clion-ui)
-- [Documentation](#-documentation)
+- [Building with vcpk](#building-with-vcpkg)
+- [Documentation](#documentation)
 
 ## Examples
 
@@ -53,7 +51,7 @@ server.send(config.topics.at("secret-topic"), msg, config.credentials);
     - [ ] UTF8 support
     - [ ] scheduled delivery
 
-## 🛠️ Building with vcpkg
+## Building with vcpkg
 
 - clone with submodules to get vcpkg
 - run bootstrap and install dependencies
@@ -71,7 +69,7 @@ Build the library by running cmake or by running:
 sh ./scripts/build.sh
 ```
 
-## 📃 Documentation
+## Documentation
 
 You can generate a documentation using doxygen.
 This will include files from `src/` and `doc/source/`.  
