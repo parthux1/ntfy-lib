@@ -71,8 +71,7 @@ sh ./scripts/build.sh
 
 ## Documentation
 
-You can generate a documentation using doxygen.
-This will include files from `src/` and `doc/source/`.  
+You can generate a documentation by using doxygen.  
 Documentation will be written to `doc/out/`.
 
 ```bash
