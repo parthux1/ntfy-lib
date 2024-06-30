@@ -15,7 +15,9 @@
 #include <Credentials.hpp>
 
 namespace ntfy {
-
+    /*!
+     * An external configuration file for keeping secrets. See res/examples.ntfy.yml for configuration.
+     */
     class YamlConfiguration {
     public:
         /*!

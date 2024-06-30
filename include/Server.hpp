@@ -17,6 +17,9 @@
 #include "jsonFunc.hpp"
 
 namespace ntfy {
+    /*!
+     * Represents a ntfy server which can be accessed.
+     */
     class Server {
     public:
         explicit Server(std::string url);

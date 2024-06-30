@@ -82,5 +82,8 @@ Documentation will be written to `doc/out/`.
 doxygen doc/DoxyFile
 
 # open the documentation
+# windows
 start doc/out/html/index.html
+# linux
+open doc/out/html/index.html
 ```

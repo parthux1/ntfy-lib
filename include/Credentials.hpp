@@ -5,6 +5,9 @@
 #include <string>
 
 namespace ntfy {
+    /*!
+     * \brief Credentials which can be used to access topics.
+     */
     class Credentials {
     public:
         std::string name;

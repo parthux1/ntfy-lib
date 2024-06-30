@@ -18,8 +18,13 @@
 
 namespace ntfy {
 
+    /*!
+     * Intermediate object for reading and handling a http stream from ntfy.
+     * ntfy::Server can generate it for you.
+     */
     class MessageListener {
     public:
+        //! Function type which can be added using MessageListener::add_handler
         using HandlerType = std::function<void(const ntfy::Message&)>;
 
         explicit MessageListener(cpr::Session session);
@@ -32,11 +37,14 @@ namespace ntfy {
         void start();
         /*!
          * Stop the Listener
-         * \note Stopping the session may take up to 1 second.
+         * \note Stopping the session may take up to 1 second due to delay of cpr::ProgressCallback
          * \throws std::logic_error if listener wasn't started
          */
         cpr::Response stop();
 
+        /*!
+         * \return true, if the MessageListener is active
+         */
         bool is_running() const;
 
         /*!
