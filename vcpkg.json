@@ -1,5 +1,5 @@
 {
-  "name": "<project_name>",
+  "name": "ntfy-lib",
   "version-string": "1.0.0",
   "builtin-baseline": "6f98981f736c6482a3d80db6ba35c6ff64482cfb",
   "dependencies": [
