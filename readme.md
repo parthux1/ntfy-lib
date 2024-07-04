@@ -1,7 +1,7 @@
 # ntfy-lib
 
-ntfy API for C++.  
-Implements partially ntfy functionality stated in https://docs.ntfy.sh/subscribe/api/
+Third party ntfy API for C++.  
+Partial implementation of ntfy functionality as stated in https://docs.ntfy.sh/subscribe/api/
 
 - [Examples](#examples)
 - [Features](#features)
