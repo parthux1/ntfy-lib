@@ -54,7 +54,7 @@ namespace ntfy {
          * \param callback function to execute
          * \returns this MessageListener
          */
-        MessageListener& add_handler(const std::string& id, std::function<void(ntfy::Message)> callback);
+        MessageListener& add_handler(const std::string& id, HandlerType callback);
 
     private:
         std::shared_ptr<cpr::Session> session;

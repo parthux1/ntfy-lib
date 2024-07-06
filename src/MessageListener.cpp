@@ -59,8 +59,7 @@ cpr::Response ntfy::MessageListener::stop() {
     m_running = false;
     return response->get();
 }
-ntfy::MessageListener& ntfy::MessageListener::add_handler(const std::string& id,
-                                                          std::function<void(ntfy::Message)> callback) {
+ntfy::MessageListener& ntfy::MessageListener::add_handler(const std::string& id, HandlerType callback) {
     const std::lock_guard<std::mutex> lock(m_handlers);
     handlers.insert_or_assign(id, callback);
     spdlog::debug("{}Added Handler with ID {}", log_preface(), id);
