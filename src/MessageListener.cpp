@@ -14,7 +14,9 @@ ntfy::MessageListener::MessageListener(cpr::Session session)
                               if (j.value("event", "not set") == "message") {
                                   Message m = ntfy::json::stream_to_msg(j);
 
-                                  // const std::lock_guard<std::mutex> lock(m_handlers);
+                                  // guarantee no handlers are removed while calling them
+                                  // TODO: maybe multithread handler calls?
+                                  const std::lock_guard<std::mutex> lock(m_handlers);
                                   for (auto& [id, handler] : handlers) {
                                       handler(m);
                                   }
@@ -59,11 +61,29 @@ cpr::Response ntfy::MessageListener::stop() {
     m_running = false;
     return response->get();
 }
+
 ntfy::MessageListener& ntfy::MessageListener::add_handler(const std::string& id, HandlerType callback) {
     const std::lock_guard<std::mutex> lock(m_handlers);
     handlers.insert_or_assign(id, callback);
     spdlog::debug("{}Added Handler with ID {}", log_preface(), id);
     return *this;
+}
+
+bool ntfy::MessageListener::remove_handler(const std::string& id) {
+    std::lock_guard<std::mutex> lock{m_handlers};
+    return handlers.erase(id);
+}
+
+std::vector<std::string> ntfy::MessageListener::handler_ids() {
+    std::vector<std::string> ids;
+    std::lock_guard<std::mutex> lock{m_handlers};
+    ids.reserve(handlers.size());
+
+    for (const auto& [key, value] : handlers) {
+        ids.push_back(key);
+    }
+    
+    return ids;
 }
 
 bool ntfy::MessageListener::is_running() const { return m_running && response.has_value(); }

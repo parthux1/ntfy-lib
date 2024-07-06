@@ -56,6 +56,19 @@ namespace ntfy {
          */
         MessageListener& add_handler(const std::string& id, HandlerType callback);
 
+        /*!
+         * Remove a registered handler.
+         * \param id
+         * \returns true if a handler was removed.
+         */
+        bool remove_handler(const std::string& id);
+
+        /*!
+         * Get all registered handler ids.
+         * \returns handler ids.
+         */
+        std::vector<std::string> handler_ids();
+
     private:
         std::shared_ptr<cpr::Session> session;
         std::optional<cpr::AsyncResponse> response{};
