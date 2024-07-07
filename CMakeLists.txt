@@ -18,13 +18,21 @@ add_subdirectory(src)
 set_target_properties(ntfy PROPERTIES VERSION ${PROJECT_VERSION})
 
 
-# install rule
+# install rules
 include(GNUInstallDirs)
+
 install(TARGETS ntfy
+        EXPORT ntfy-libConfig
         FILE_SET HEADERS
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
+install(EXPORT
+        ntfy-libConfig
+        DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/ntfy-lib"
+        NAMESPACE ntfy-lib::
+
+)
 
 # dependencies
 find_package(nlohmann_json REQUIRED)
