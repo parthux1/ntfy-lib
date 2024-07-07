@@ -29,7 +29,7 @@ install(TARGETS ntfy
 
 install(EXPORT
         ntfy-libConfig
-        DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/cmake/ntfy-lib"
+        DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/ntfy-lib"
         NAMESPACE ntfy-lib::
 
 )
