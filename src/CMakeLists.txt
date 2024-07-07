@@ -6,6 +6,6 @@ set(ntfy_SRC
         ${PROJECT_SOURCE_DIR}/src/ntfy-lib/YamlConfiguration.cpp)
 
 target_sources(ntfy
-        PUBLIC
+        PRIVATE
         ${ntfy_SRC}
 )
