@@ -20,8 +20,11 @@
       "version>=": "1.10.5#2"
     },
     {
-      "name": "gtest",
-      "version>=": "1.14.0#1",
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
       "host": true
     }
   ]
