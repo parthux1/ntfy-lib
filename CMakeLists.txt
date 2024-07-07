@@ -41,7 +41,7 @@ find_package(spdlog REQUIRED)
 find_package(cpr REQUIRED)
 
 
-target_link_libraries(ntfy PUBLIC
+target_link_libraries(ntfy PRIVATE
         spdlog::spdlog
         yaml-cpp::yaml-cpp
         cpr::cpr
