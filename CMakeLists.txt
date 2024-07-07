@@ -25,13 +25,13 @@ install(TARGETS ntfy
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
+
+# dependencies
 find_package(nlohmann_json REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(spdlog REQUIRED)
 find_package(cpr REQUIRED)
 
-target_include_directories(ntfy PRIVATE
-        include)
 
 target_link_libraries(ntfy PUBLIC
         spdlog::spdlog
@@ -39,6 +39,7 @@ target_link_libraries(ntfy PUBLIC
         cpr::cpr
         nlohmann_json::nlohmann_json)
 
+# build examples if flag is set
 if (ntfy_build_example)
     add_subdirectory(example)
 endif ()
