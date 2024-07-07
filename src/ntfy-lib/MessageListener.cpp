@@ -2,7 +2,7 @@
 // Created by parthu on 6/30/24.
 //
 
-#include "MessageListener.hpp"
+#include <ntfy-lib/MessageListener.hpp>
 
 ntfy::MessageListener::MessageListener(cpr::Session session)
     : session(std::make_shared<cpr::Session>(std::move(session))) {
@@ -82,7 +82,7 @@ std::vector<std::string> ntfy::MessageListener::handler_ids() {
     for (const auto& [key, value] : handlers) {
         ids.push_back(key);
     }
-    
+
     return ids;
 }
 

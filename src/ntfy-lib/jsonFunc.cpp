@@ -2,7 +2,7 @@
 // Created by parthu on 6/29/24.
 //
 
-#include <jsonFunc.hpp>
+#include <ntfy-lib/jsonFunc.hpp>
 
 namespace ntfy::json {
     Message stream_to_msg(const nlohmann::json& j) {

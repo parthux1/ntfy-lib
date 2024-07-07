@@ -2,7 +2,7 @@
 // Created by parthu on 6/29/24.
 //
 
-#include "YamlConfiguration.hpp"
+#include <ntfy-lib/YamlConfiguration.hpp>
 ntfy::YamlConfiguration ntfy::YamlConfiguration::from_file(std::filesystem::path file_path) {
 
     if (!file_path.has_filename()) {

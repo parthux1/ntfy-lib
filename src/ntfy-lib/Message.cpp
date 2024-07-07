@@ -1,7 +1,7 @@
 //
 // Created by parthu on 6/29/24.
 //
-#include "Message.hpp"
+#include <ntfy-lib/Message.hpp>
 
 [[maybe_unused]] std::string ntfy::Message::str() {
     std::string ret_str{};

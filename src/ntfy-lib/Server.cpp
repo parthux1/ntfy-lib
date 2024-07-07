@@ -1,7 +1,7 @@
 //
 // Created by parthu on 6/29/24.
 //
-#include <Server.hpp>
+#include <ntfy-lib/Server.hpp>
 
 ntfy::Server::Server(std::string url) : server_url(std::move(url)) {
     // URL error handling
