@@ -1,5 +1,9 @@
 # Installation
 
+## clone and build it
+
+You can clone the repository, build target `ntfy-lib` and link against headers in `include/ntfy-lib`.
+
 ## using vcpkg
 
 Currently only installation using an [overlay port](https://learn.microsoft.com/en-us/vcpkg/concepts/overlay-ports) is
@@ -7,7 +11,7 @@ implemented. Files can be found in `port/` or in releases.
 
 ### Tutorial for manifest mode
 
-1. Save files vcpkg files to your local disk, for example `<proj_root>/ports/`.
+1. Save vcpkg files to your local disk, for example `<proj_root>/ports/`.
     1. You may find them added to release tags
     2. If your targeted release does not contain vcpkg file:
         1. copy files from `port/`
