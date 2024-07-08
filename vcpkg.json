@@ -1,22 +1,28 @@
 {
-  "name" : "ntfy-lib",
-  "version-string" : "0.1.1",
-  "builtin-baseline" : "6f98981f736c6482a3d80db6ba35c6ff64482cfb",
-  "dependencies" : [ {
-    "name" : "spdlog",
-    "version>=" : "1.14.1"
-  }, {
-    "name" : "nlohmann-json",
-    "version>=" : "3.11.3"
-  }, {
-    "name" : "yaml-cpp",
-    "version>=" : "0.8.0#1"
-  }, {
-    "name" : "cpr",
-    "version>=" : "1.10.5#2"
-  }, {
-    "name" : "gtest",
-    "version>=" : "1.14.0#1",
-    "host" : true
-  } ]
+  "name": "ntfy-lib",
+  "version-string": "1.0.0",
+  "builtin-baseline": "6f98981f736c6482a3d80db6ba35c6ff64482cfb",
+  "dependencies": [
+    {
+      "name": "spdlog",
+      "version>=": "1.14.1"
+    },
+    {
+      "name": "nlohmann-json",
+      "version>=": "3.11.3"
+    },
+    {
+      "name": "yaml-cpp",
+      "version>=": "0.8.0#1"
+    },
+    {
+      "name": "cpr",
+      "version>=": "1.10.5#2"
+    },
+    {
+      "name": "gtest",
+      "version>=": "1.14.0#1",
+      "host": true
+    }
+  ]
 }
