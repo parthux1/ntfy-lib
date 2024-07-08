@@ -13,7 +13,7 @@ implemented. Files can be found in `port/` or in releases.
         1. copy files from `port/`
         2. update `REF` to your release tag and continue with steps 2-4.
         3. Step 4 might crash because of a Hash-Mismatch, update `SHA512` to the hash vcpkg shows you
-2. register port dir for example by creating `<proj_root>/vcpkg-configuration.json`:
+2. register port dir, for example by creating `<proj_root>/vcpkg-configuration.json`:
 
 ```json
 {
@@ -42,7 +42,7 @@ vcpkg install
 
 ```cmake
 find_package(ntfy-lib)
-target_link_libraries(<proj> PRIVATE ntfy-lib::ntfy)
+target_link_libraries(<target> PRIVATE ntfy-lib::ntfy)
 ```
 
 6. Follow [Examples](./examples.md)
