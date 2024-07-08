@@ -3,64 +3,12 @@
 Third party ntfy API for C++.  
 Partial implementation of ntfy functionality as stated in https://docs.ntfy.sh/subscribe/api/
 
-- [Examples](#examples)
 - [Features](#features)
-- [Building with vcpk](#building-with-vcpkg)
+- [Examples](#examples)
+- [Installation](#installation)
 - [Documentation](#documentation)
+- [Development](#development)
 - [Attributions and Licence](#attributions-and-licence)
-
-## Examples
-
-Sending a message to a topic:
-
-```C++
-#include <ntfy-lib/ntfy.hpp>
-
-auto server = ntfy::Server{"https://example-url.com"};
-const auto msg = ntfy::Message{.content="hello world", .title="Sent from my cpp program"};
-
-server.send("mytopic", msg);
-```
-
-Load an external configuration to hide information
-
-```C++
-#include <ntfy-lib/ntfy.hpp>
-#include <ntfy-lib/YamlConfiguration.hpp>
-
-const auto config = ntfy::YamlConfiguration::from_file("example.ntfy.config");
-
-auto server = ntfy::Server{config.server_url};
-const auto msg = ntfy::Message{.content="hello world", .title="Sent from my cpp program"};
-
-server.send(config.topics.at("secret-topic"), msg, config.credentials);
-```
-
-Listen for messages in a topic
-
-```C++
-#include <iostream>
-#include <ntfy-lib/ntfy.hpp>
-#include <ntfy-lib/YamlConfiguration.hpp>
-
-const auto config = ntfy::YamlConfiguration::from_file("example.ntfy.config");
-auto server = ntfy::Server{config.server_url};
-
-auto listener = server.listen_to(config.topics.at("test"), config.credentials);
-listener.add_handler("print_msg", 
-                     [](const ntfy::Message m) {
-                        std::cout << m.str() << std::endl;
-                     });
-listener.start();
-// block main thread so listener is not destroyed
-std::string input{};
-while (input != "stop") {
-    std::cout << "> ";
-    std::cin >> input;
-}
-listener.stop()
-
-```
 
 ## Features
 
@@ -79,25 +27,17 @@ listener.stop()
     - [ ] UTF8 support
     - [ ] scheduled delivery
 
-## Building with vcpkg
+## Examples
 
-- clone with submodules to get vcpkg
-- run bootstrap and install dependencies
+Code snippets can be found in [this markdown](doc/source/markdown/examples.md).
 
-```bash
-# run in project root or install dependecies by yourself from vcpkg.json
-sh ./scripts/vcpkg_setup.sh
-```
+## Installation
 
-Toolchain-File of Vcpkg is included in the CMakeLists.txt.  
-Build the library by running cmake or by running:
-
-```bash
-# run in project root
-sh ./scripts/build.sh
-```
+See [this markdown](doc/source/markdown/installation.md).
 
 ## Documentation
+
+Statically included markdown files can be found in [`doc/source/markdown`](doc/source/markdown).
 
 You can generate a documentation by using doxygen.  
 Documentation will be written to `doc/out/`.
@@ -111,6 +51,27 @@ doxygen doc/DoxyFile
 start doc/out/html/index.html
 # linux
 open doc/out/html/index.html
+```
+
+## Development
+
+### Building with vcpkg
+
+- clone with submodules to get vcpkg
+- run bootstrap and install dependencies
+
+```bash
+# run in project root or install dependecies by yourself from vcpkg.json
+sh ./scripts/vcpkg_setup.sh
+```
+
+Toolchain-File of vcpkg is included in the CMakeLists.txt. If you don`t want to install vcpkg within this repository
+adjust the path accordingly.
+Build the library by running cmake or by running:
+
+```bash
+# run in project root
+sh ./scripts/build.sh
 ```
 
 ## Attributions and Licence
