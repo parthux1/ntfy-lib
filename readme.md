@@ -57,22 +57,11 @@ open doc/out/html/index.html
 
 ### Building with vcpkg
 
-- clone with submodules to get vcpkg
-- run bootstrap and install dependencies
+- Have a working vcpkg installation.
+- set env variable `VCPKG_ROOT` to point to its dir
+- build with the suplied `CMakePresets.json`
 
-```bash
-# run in project root or install dependecies by yourself from vcpkg.json
-sh ./scripts/vcpkg_setup.sh
-```
-
-Toolchain-File of vcpkg is included in the CMakeLists.txt. If you don`t want to install vcpkg within this repository
-adjust the path accordingly.
-Build the library by running cmake or by running:
-
-```bash
-# run in project root
-sh ./scripts/build.sh
-```
+`cmake --preset ntfy-lib`
 
 ## Attributions and Licence
 
@@ -84,4 +73,4 @@ Copyright (c) 2024, parthux1
 All rights reserved.
 
 This source code is licensed under the BSD-style license found in the
-LICENSE file in the root directory of this source tree. 
+LICENSE file in the root directory of this source tree.

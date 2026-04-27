@@ -3,9 +3,6 @@
 cmake_minimum_required(VERSION 3.23)
 set(CMAKE_CXX_STANDARD 20)
 
-set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/tooling/vcpkg/scripts/buildsystems/vcpkg.cmake"
-        CACHE STRING "Vcpkg toolchain file")
-
 project(ntfy-lib VERSION 0.1.1 DESCRIPTION "ntfy API for C++")
 
 option(ntfy_build_example "Build Example" OFF)
@@ -35,7 +32,7 @@ install(EXPORT
 )
 
 # dependencies
-find_package(nlohmann_json REQUIRED)
+find_package(nlohmann_json CONFIG REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(spdlog REQUIRED)
 find_package(cpr REQUIRED)
