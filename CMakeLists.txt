@@ -14,21 +14,21 @@ add_subdirectory(src)
 
 set_target_properties(ntfy PROPERTIES VERSION ${PROJECT_VERSION})
 
-
 # install rules
 include(GNUInstallDirs)
 
-install(TARGETS ntfy
-        EXPORT ntfy-libConfig
-        FILE_SET HEADERS
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(
+    TARGETS ntfy
+    EXPORT ntfy-libConfig
+    FILE_SET HEADERS
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
 
-install(EXPORT
-        ntfy-libConfig
-        DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/ntfy-lib"
-        NAMESPACE ntfy-lib::
-
+install(
+    EXPORT ntfy-libConfig
+    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/ntfy-lib"
+    NAMESPACE ntfy-lib::
 )
 
 # dependencies
@@ -37,14 +37,16 @@ find_package(yaml-cpp REQUIRED)
 find_package(spdlog REQUIRED)
 find_package(cpr REQUIRED)
 
-
-target_link_libraries(ntfy PRIVATE
+target_link_libraries(
+    ntfy
+    PRIVATE
         spdlog::spdlog
         yaml-cpp::yaml-cpp
         cpr::cpr
-        nlohmann_json::nlohmann_json)
+        nlohmann_json::nlohmann_json
+)
 
 # build examples if flag is set
-if (ntfy_build_example)
+if(ntfy_build_example)
     add_subdirectory(example)
-endif ()
+endif()
