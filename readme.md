@@ -61,7 +61,10 @@ open doc/out/html/index.html
 - set env variable `VCPKG_ROOT` to point to its dir
 - build with the suplied `CMakePresets.json`
 
-`cmake --preset ntfy-lib`
+```shell
+cmake --preset ntfy-lib
+cmake --build --preset ntfy-lib
+```
 
 ## Attributions and Licence
 
