@@ -4,11 +4,10 @@
 
 #include <ntfy-lib/MessageListener.hpp>
 
-ntfy::MessageListener::MessageListener(cpr::Session session)
-    : session(std::make_shared<cpr::Session>(std::move(session))) {
+ntfy::MessageListener::MessageListener(std::shared_ptr<cpr::Session>&& session) : session(std::move(session)) {
     cpr::priv::set_option(*this->session,
                           // callback for distributing to potential handlers
-                          cpr::WriteCallback([&](std::string data, intptr_t userdata) -> bool {
+                          cpr::WriteCallback([&](std::string_view data, intptr_t userdata) -> bool {
                               nlohmann::json j = nlohmann::json::parse(data);
                               // only forward to callback if a message was sent
                               if (j.value("event", "not set") == "message") {

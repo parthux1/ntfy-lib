@@ -27,7 +27,7 @@ namespace ntfy {
         //! Function type which can be added using MessageListener::add_handler
         using HandlerType = std::function<void(const ntfy::Message&)>;
 
-        explicit MessageListener(cpr::Session session);
+        explicit MessageListener(std::shared_ptr<cpr::Session>&& session);
         ~MessageListener();
 
         /*!

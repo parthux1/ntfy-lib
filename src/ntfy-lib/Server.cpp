@@ -58,9 +58,9 @@ cpr::Response ntfy::Server::send(const std::string& topic, const Message& messag
 
 ntfy::MessageListener ntfy::Server::listen_to(const std::string& topic, const std::optional<Credentials>& credentials) {
     cpr::Url topic_url = server_url + topic + "/json";
-    cpr::Session session;
-    handle_basic_auth(session, credentials);
-    cpr::priv::set_option(session, topic_url);
+    std::shared_ptr<cpr::Session> session;
+    handle_basic_auth(*session, credentials);
+    cpr::priv::set_option(*session, topic_url);
 
     // handler
     spdlog::debug("target URL: {}", topic_url.str());

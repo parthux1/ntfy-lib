@@ -32,6 +32,8 @@ namespace ntfy {
          * Serialize to string.
          * \return std::string containing all information
          */
-        std::string str();
+        std::string str() const;
+
+        bool operator==(const Message& other) const = default;
     };
 } // namespace ntfy

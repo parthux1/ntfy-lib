@@ -3,7 +3,7 @@
 //
 #include <ntfy-lib/Message.hpp>
 
-[[maybe_unused]] std::string ntfy::Message::str() {
+[[maybe_unused]] std::string ntfy::Message::str() const {
     std::string ret_str{};
     ret_str += "Title: " + title.value_or("not set");
     ret_str += "\nContent: " + content;
