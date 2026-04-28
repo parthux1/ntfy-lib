@@ -6,10 +6,11 @@ set(CMAKE_CXX_STANDARD 20)
 project(ntfy-lib VERSION 0.1.1 DESCRIPTION "ntfy API for C++")
 
 option(ntfy_build_example "Build Example" OFF)
+option(ntfy_build_test "Build GTest" OFF)
 
 add_library(ntfy SHARED)
 
-add_subdirectory(include)
+add_subdirectory("include")
 add_subdirectory(src)
 
 set_target_properties(ntfy PROPERTIES VERSION ${PROJECT_VERSION})
@@ -49,4 +50,9 @@ target_link_libraries(
 # build examples if flag is set
 if(ntfy_build_example)
     add_subdirectory(example)
+endif()
+
+if(ntfy_build_test)
+    find_package(GTest REQUIRED)
+    add_subdirectory(test)
 endif()

@@ -4,6 +4,5 @@ doc/out/
 # vcpkg
 vcpkg_installed/
 
-# Clion
-cmake-build-debug
-.idea
+# userconfig
+CMakeUserPresets.json

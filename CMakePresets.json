@@ -1,13 +1,46 @@
 {
-  "version": 2,
-  "configurePresets": [
-    {
-      "name": "ntfy-lib",
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build",
-      "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-      }
-    }
-  ]
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "ntfy-lib",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "description": "Default build for the library",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "ntfy_build_test": false
+            }
+        },
+        {
+            "name": "ntfy-test",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "inherits": "ntfy-lib",
+            "cacheVariables": {
+                "ntfy_build_test": true
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "ntfy-lib",
+            "displayName": "ntfy-lib",
+            "description": "Default build for the library",
+            "configurePreset": "ntfy-lib"
+        },
+        {
+            "name": "ntfy-test",
+            "inherits": "ntfy-lib",
+            "displayName": "ntfy-test",
+            "configurePreset": "ntfy-test"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "ntfy-test",
+            "description": "",
+            "displayName": "",
+            "configurePreset": "ntfy-test"
+        }
+    ]
 }
